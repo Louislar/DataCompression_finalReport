@@ -1,6 +1,6 @@
 # DataCompression_finalReport
 
-## python 讀取圖片
+## python 讀取圖片 並且壓縮
 在/lzma裡面
 
 為pycharm專案檔
