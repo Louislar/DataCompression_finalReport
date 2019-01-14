@@ -1,5 +1,5 @@
 import  lzma
-from PIL import Image
+#from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 
