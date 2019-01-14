@@ -23,6 +23,10 @@ print(imgRaw_toString)
 with lzma.open("afile.lzma", "w", format=lzma.FORMAT_ALONE) as f:
     f.write(imgRaw_toString)
 
+#對已經壓縮過後的jpeg再做一次
+with lzma.open("afile.lzma", "w", format=lzma.FORMAT_ALONE) as f:
+    f.write(imgRaw_toString)
+
 file_content=0
 with lzma.open("afile.lzma", format=lzma.FORMAT_ALONE) as f:
     file_content = f.read()
@@ -45,3 +49,4 @@ print(file_compress)
 #壓縮過後的bit轉成array, 以方便做PSNR的計算
 file_compress_afterCompress_array=np.frombuffer(file_compress, dtype=np.uint8)
 print(file_compress_afterCompress_array)
+file_compress_afterCompress_array
