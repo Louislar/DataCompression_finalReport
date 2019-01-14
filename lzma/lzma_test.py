@@ -1,31 +1,51 @@
 import  lzma
-#from PIL import Image
+from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 
 #data總共22bytes
 data=b"abcdefghijklmnopqrstuv"
 
-#file讀進來, 是一個一條直線的array, 所以要轉成512*512的array才會是圖片的二維格式
-imgRaw=np.fromfile("Lena.raw", dtype=np.uint8)
-imgRaw_afterReshape=imgRaw.reshape([512, 512])
-print(imgRaw_afterReshape)
 
-#把圖片show出來, 是以graylevel show出來
-plt.imshow(imgRaw_afterReshape, cmap='gray')
-plt.show()
+#isShowImg是讓使用者決定要不要顯示圖片
+def readInRawImg(filePath, imgShape, isShowImg):
+    # file讀進來, 是一個一條直線的array, 所以要轉成512*512的array才會是圖片的二維格式
+    imgRaw = np.fromfile(filePath, dtype=np.uint8)  #若是跟這個.py檔案放在一起，就直接打檔名即可
+
+    if(isShowImg):
+        #若是要show出圖片就要將原本一維的array修改成二維的
+        imgRaw_afterReshape = imgRaw.reshape(imgShape) #imgShape example [512, 512]
+        print(imgRaw_afterReshape)
+        # 把圖片show出來, 是以graylevel show出來
+        plt.imshow(imgRaw_afterReshape, cmap='gray')
+        plt.show()
+
+    # 原本紀錄在array的pixel改成用string存
+    imgRaw_toString = imgRaw.tostring()
+    print(imgRaw_toString)
+    return imgRaw_toString
+    pass
 
 
-#原本紀錄在array的pixel改成用string存
-imgRaw_toString=imgRaw.tostring()
-print(imgRaw_toString)
+
+
+#raw檔讀入
+imgRaw_toString=readInRawImg("Lena.raw", [512, 512], True)
+#jpeg檔讀入
+imgJpeg_toString=readInRawImg("Lena_jpeg_format.jpg", [512, 512], False)
+#png檔讀入
+imgPng_toString=readInRawImg("Lena_png_format.png", [512, 512], False)
 
 with lzma.open("afile.lzma", "w", format=lzma.FORMAT_ALONE) as f:
     f.write(imgRaw_toString)
 
-#對已經壓縮過後的jpeg再做一次
-with lzma.open("afile.lzma", "w", format=lzma.FORMAT_ALONE) as f:
-    f.write(imgRaw_toString)
+#對已經壓縮過後的jpeg再做一次LZMA壓縮
+with lzma.open("afterJpegThenLzma.lzma", "w", format=lzma.FORMAT_ALONE) as f:
+    f.write(imgJpeg_toString)
+
+#對已經壓縮過後的png再做一次LZMA壓縮
+with lzma.open("afterPngThenLzma.lzma", "w", format=lzma.FORMAT_ALONE) as f:
+    f.write(imgPng_toString)
 
 file_content=0
 with lzma.open("afile.lzma", format=lzma.FORMAT_ALONE) as f:
@@ -50,3 +70,26 @@ print(file_compress)
 file_compress_afterCompress_array=np.frombuffer(file_compress, dtype=np.uint8)
 print(file_compress_afterCompress_array)
 file_compress_afterCompress_array
+
+
+
+
+
+
+
+
+#後來把以下code改寫成function了
+
+#file讀進來, 是一個一條直線的array, 所以要轉成512*512的array才會是圖片的二維格式
+#imgRaw=np.fromfile("Lena.raw", dtype=np.uint8)
+#imgRaw_afterReshape=imgRaw.reshape([512, 512])
+#print(imgRaw_afterReshape)
+
+#把圖片show出來, 是以graylevel show出來
+#plt.imshow(imgRaw_afterReshape, cmap='gray')
+#plt.show()
+
+
+#原本紀錄在array的pixel改成用string存
+#imgRaw_toString=imgRaw.tostring()
+#print(imgRaw_toString)
