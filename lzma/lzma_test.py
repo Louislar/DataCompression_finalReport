@@ -37,6 +37,11 @@ img_after_decompress=img_after_decompress.reshape([512, 512])
 plt.imshow(img_after_decompress, cmap='gray')
 plt.show()
 
+
+
 #觀察壓縮過後的bit長成甚麼樣子
 file_compress=lzma.compress(file_content, format=lzma.FORMAT_ALONE)
 print(file_compress)
+#壓縮過後的bit轉成array, 以方便做PSNR的計算
+file_compress_afterCompress_array=np.frombuffer(file_compress, dtype=np.uint8)
+print(file_compress_afterCompress_array)
