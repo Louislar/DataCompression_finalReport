@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eb82a63-0e02-4854-9063-a533d61328fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../lzma-specification/decom_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lzma-specification/decom_out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../~$壓縮_期末report_梁中瀚.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../~$壓縮_期末report_梁中瀚.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../~WRL1340.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lena_jpeg_format.7z" beforeDir="false" afterPath="$PROJECT_DIR$/Lena_jpeg_format.7z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lzma_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lzma_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../資料壓縮_期末report_梁中瀚.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../資料壓縮_期末report_梁中瀚.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lzma_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="47" />
+            <state relative-caret-position="233">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -164,8 +163,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lzma_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="47" />
+        <state relative-caret-position="233">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

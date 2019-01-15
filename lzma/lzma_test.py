@@ -69,10 +69,17 @@ print(file_compress)
 #壓縮過後的bit轉成array, 以方便做PSNR的計算
 file_compress_afterCompress_array=np.frombuffer(file_compress, dtype=np.uint8)
 print(file_compress_afterCompress_array)
-file_compress_afterCompress_array
 
 
 
+
+#用過濾器調整dictionary大小
+my_filters = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 1000000000},
+]
+#對已經壓縮過後的jpeg再做一次LZMA壓縮, 但是使用超大dictionary size(1GByte)
+with lzma.open("afterJpegThenLzma_bigDict.lzma", "w", format=lzma.FORMAT_ALONE, filters=my_filters) as f:
+    f.write(imgJpeg_toString)
 
 
 
