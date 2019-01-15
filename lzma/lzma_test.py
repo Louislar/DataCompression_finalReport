@@ -74,14 +74,38 @@ print(file_compress_afterCompress_array)
 
 
 #用過濾器調整dictionary大小
-my_filters = [
+my_filters_1G = [
     {"id": lzma.FILTER_LZMA1, "dict_size": 1000000000},
 ]
-#對已經壓縮過後的jpeg再做一次LZMA壓縮, 但是使用超大dictionary size(1GByte)
-with lzma.open("afterJpegThenLzma_bigDict.lzma", "w", format=lzma.FORMAT_ALONE, filters=my_filters) as f:
-    f.write(imgJpeg_toString)
 
+my_filters_4K = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 4000},
+]
 
+my_filters_50K = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 50000},
+]
+my_filters_100K = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 100000},
+]
+my_filters_700K = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 700000},
+]
+my_filters_10M = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 10000000},
+]
+my_filters_500M = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 500000000},
+]
+my_filters_1_5G = [
+    {"id": lzma.FILTER_LZMA1, "dict_size": 1500000000},
+]
+#對已經壓縮過後的jpeg再做一次LZMA壓縮, 但是使用各種dictionary size(1GByte)
+
+with lzma.open("afterJpegThenLzma_Dict1G.lzma", "w", format=lzma.FORMAT_ALONE, filters=my_filters_1G) as f:
+    f.write(imgRaw_toString)
+with lzma.open("afterJpegThenLzma_Dict1_5G.lzma", "w", format=lzma.FORMAT_ALONE, filters=my_filters_1_5G) as f:
+    f.write(imgRaw_toString)
 
 
 
